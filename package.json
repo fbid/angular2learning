@@ -1,8 +1,8 @@
 {
     "name": "product-management",
     "version": "1.0.0",
-    "author": "Deborah Kurata",
-    "description": "Package for the Acme Product Management sample application",
+    "author": "fbid",
+    "description": "First Angular2 test application",
     "scripts": {
         "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
         "tsc": "tsc",
