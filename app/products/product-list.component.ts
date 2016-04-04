@@ -54,4 +54,10 @@ export class ProductListComponent implements OnInit {
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
+
+
+  //2.3 Dichiaro evento, bindato nell'html per ricevere l'output di starComponent
+  onRatingClick(message: string) : void {
+    this.pageTitle = 'Product List ' + message;
+  }
 }

@@ -63,6 +63,10 @@ System.register(['angular2/core', './product-filter.pipe', '../shared/star.compo
                 ProductListComponent.prototype.toggleImage = function () {
                     this.showImage = !this.showImage;
                 };
+                //2.3 Dichiaro evento, bindato nell'html per ricevere l'output di starComponent
+                ProductListComponent.prototype.onRatingClick = function (message) {
+                    this.pageTitle = 'Product List ' + message;
+                };
                 ProductListComponent = __decorate([
                     core_1.Component({
                         selector: 'pm-products',
