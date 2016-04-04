@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component, OnInit } from 'angular2/core';
 
 import { IProduct } from './product';
 
@@ -7,7 +7,7 @@ import { IProduct } from './product';
   templateUrl: 'app/products/product-list.component.html',
   styleUrls: ['app/products/product-list.component.css']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
 
   //# Properties #
 
@@ -41,6 +41,11 @@ export class ProductListComponent {
 
 
   //# Methods #
+  // Ci deve essere metodo per OnInit --> si prefixa con ng --> ngOnInit()
+  ngOnInit(): void {
+    console.log('Product Component Init');
+  }
+
 
   toggleImage(): void {
     this.showImage = !this.showImage;
