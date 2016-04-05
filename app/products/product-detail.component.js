@@ -22,17 +22,21 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
             }],
         execute: function() {
             ProductDetailComponent = (function () {
-                function ProductDetailComponent(_routeParams) {
+                function ProductDetailComponent(_routeParams, _router) {
                     this._routeParams = _routeParams;
+                    this._router = _router;
                     this.pageTitle = 'Product Details';
                     var id = +this._routeParams.get('id'); //+ converts string -> number
                     this.pageTitle += ": " + id;
                 }
+                ProductDetailComponent.prototype.onBack = function () {
+                    this._router.navigate(['Products']);
+                };
                 ProductDetailComponent = __decorate([
                     core_1.Component({
                         templateUrl: 'app/products/product-detail.component.html'
                     }), 
-                    __metadata('design:paramtypes', [router_1.RouteParams])
+                    __metadata('design:paramtypes', [router_1.RouteParams, router_1.Router])
                 ], ProductDetailComponent);
                 return ProductDetailComponent;
             }());
