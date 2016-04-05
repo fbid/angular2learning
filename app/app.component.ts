@@ -1,21 +1,23 @@
 import { Component } from 'angular2/core'
 import { HTTP_PROVIDERS } from 'angular2/http'
+import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router'
 import 'rxjs/Rx'; //load all features for Observables
 
 import { ProductListComponent } from './products/product-list.component'
 import { ProductService } from './products/product.service'
+import { WelcomeComponent } from './home/welcome.component'
+
 
 @Component({
   selector: 'pm-app',
-  template: `
-    <div class="container">
-      <h1>{{pageTitle}}</h1>
-      <pm-products></pm-products>
-    </div>
-  `,
-  directives: [ProductListComponent],
-  providers: [ProductService, HTTP_PROVIDERS]
+  templateUrl: 'app/app.component.html',
+  directives: [ROUTER_DIRECTIVES],
+  providers: [ProductService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
 })
+@RouteConfig([
+  { path: '/welcome' , name: 'Welcome', component: WelcomeComponent, useAsDefault:true },
+  { path: '/products', name: 'Products', component: ProductListComponent }
+])
 export class AppComponent {
   pageTitle: string = 'My Product Manager';
 }
