@@ -36,15 +36,17 @@ System.register(['angular2/core', './product-filter.pipe', '../shared/star.compo
                     this.pageTitle = 'Product List';
                     this.imageWidth = 50;
                     this.imageMargin = 2;
-                    this.showImage = false; //immagini non visibili quando si carica la pagina
+                    this.showImage = false;
                     this.listFilter = '';
                 }
                 //# Methods #
                 // Ci deve essere metodo per OnInit --> si prefixa con ng --> ngOnInit()
                 ProductListComponent.prototype.ngOnInit = function () {
+                    var _this = this;
                     console.log('Product Component Init');
                     //Loading products on init
-                    this.products = this._productService.getProducts();
+                    this._productService.getProducts()
+                        .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
                 };
                 ProductListComponent.prototype.toggleImage = function () {
                     this.showImage = !this.showImage;

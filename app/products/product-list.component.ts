@@ -14,16 +14,15 @@ import { ProductService } from './product.service'
 })
 export class ProductListComponent implements OnInit {
 
-
-
   //# Properties #
 
   pageTitle: string = 'Product List';
   imageWidth: number = 50;
   imageMargin: number = 2;
-  showImage: boolean = false; //immagini non visibili quando si carica la pagina
+  showImage: boolean = false;
   listFilter: string = '';
   products: IProduct[];
+  errorMessage: string;
 
   //# Constructor #
 
@@ -38,7 +37,11 @@ export class ProductListComponent implements OnInit {
     console.log('Product Component Init');
 
     //Loading products on init
-    this.products = this._productService.getProducts();
+    this._productService.getProducts()
+      .subscribe(
+        products => this.products = products,
+        error => this.errorMessage = <any>error
+      );
   }
 
 
