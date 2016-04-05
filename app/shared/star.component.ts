@@ -10,6 +10,7 @@ export class StarComponent implements OnChanges{
   //Aggiungiamo Input() decorator
   @Input() rating: number;
 
+
   //Aggiungiamo il lifecycle Hook OnChanges perchè vogliamo che
   //il valore della width cambi ogni volta che viene aggiornato il valore.
   //Va importato, aggiunto agli implements della classe e dichiarata fun() ngNomeHook
@@ -20,7 +21,7 @@ export class StarComponent implements OnChanges{
     this.starWidth = (this.rating* 86) / 5;
   }
 
-  //2.1 Dichiaro EventEmitter
+  //2.1 Dichiaro EventEmitter con generics stringa, perchè passo un messaggio
   @Output() ratingClicked: EventEmitter<string> =
     new EventEmitter<string>();
 
@@ -29,6 +30,8 @@ export class StarComponent implements OnChanges{
   onClick() {
     this.ratingClicked.emit(`The rating ${this.rating} is clicked!`);
   }
+
+
 
 
 }

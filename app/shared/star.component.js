@@ -20,7 +20,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             StarComponent = (function () {
                 function StarComponent() {
-                    //2.1 Dichiaro EventEmitter
+                    //2.1 Dichiaro EventEmitter con generics stringa, perchè passo un messaggio
                     this.ratingClicked = new core_1.EventEmitter();
                 }
                 StarComponent.prototype.ngOnChanges = function () {
