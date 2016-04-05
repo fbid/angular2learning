@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'angular2/router', 'rxjs/Rx', './products/product-list.component', './products/product.service', './home/welcome.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'angular2/router', 'rxjs/Rx', './products/product-list.component', './products/product.service', './home/welcome.component', './products/product-detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', 'rxjs/Rx',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, product_list_component_1, product_service_1, welcome_component_1;
+    var core_1, http_1, router_1, product_list_component_1, product_service_1, welcome_component_1, product_detail_component_1;
     var AppComponent;
     return {
         setters:[
@@ -32,6 +32,9 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', 'rxjs/Rx',
             },
             function (welcome_component_1_1) {
                 welcome_component_1 = welcome_component_1_1;
+            },
+            function (product_detail_component_1_1) {
+                product_detail_component_1 = product_detail_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -47,7 +50,8 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', 'rxjs/Rx',
                     }),
                     router_1.RouteConfig([
                         { path: '/welcome', name: 'Welcome', component: welcome_component_1.WelcomeComponent, useAsDefault: true },
-                        { path: '/products', name: 'Products', component: product_list_component_1.ProductListComponent }
+                        { path: '/products', name: 'Products', component: product_list_component_1.ProductListComponent },
+                        { path: '/product/:id', name: 'ProductDetail', component: product_detail_component_1.ProductDetailComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
